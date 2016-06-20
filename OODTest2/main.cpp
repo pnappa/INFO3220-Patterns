@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+
 #include "Singleton.hpp"
 #include "Buildo.hpp"
 #include "Prototype.hpp"
@@ -7,6 +9,7 @@
 #include "Decorator.hpp"
 #include "Facade.hpp"
 #include "Bridge.hpp"
+#include "Composite.hpp"
 
 int main(int argc, char const** argv)
 {
@@ -106,6 +109,27 @@ int main(int argc, char const** argv)
     circle2->draw();
     delete circle1;
     delete circle2;
+    
+    //******************* COMPOSITE *****************//
+    std::vector<TreeLeaf*> leafies;
+    for (int i = 0; i < 39; i+=1) {
+        leafies.push_back(new TreeLeaf(i));
+    }
+    InternalLeaf* node1 = new InternalLeaf();
+    InternalLeaf* node2 = new InternalLeaf();
+    InternalLeaf* node3 = new InternalLeaf();
+    for (int i = 0; i < 10; i+=3) {
+        node1->addChild(leafies.at(i));
+        node2->addChild(leafies.at(i+1));
+        node3->addChild(leafies.at(i+2));
+    }
+    leafies.clear();
+    node1->addChild(node2);
+    node1->addChild(node3);
+    node1->print();
+    delete node1;       //will delete node2, node3, and all other treeleaves
+
+    
     
     
     
