@@ -10,6 +10,7 @@
 #include "Facade.hpp"
 #include "Bridge.hpp"
 #include "Composite.hpp"
+#include "Proxy.hpp"
 
 int main(int argc, char const** argv)
 {
@@ -130,7 +131,12 @@ int main(int argc, char const** argv)
     delete node1;       //will delete node2, node3, and all other treeleaves
 
     
-    
+    //******************** PROXY *********************//
+    Picture* myImg = new ProxyImage();
+    myImg->rotate();
+    myImg->display();
+    myImg->loadImage();         //useless! done by now for sure!
+    delete myImg;
     
     
     return EXIT_SUCCESS;

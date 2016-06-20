@@ -36,7 +36,6 @@ public:
 };
 
 
-
 class Shape {
 protected:
     Renderer* m_renderer;
