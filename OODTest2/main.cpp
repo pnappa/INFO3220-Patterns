@@ -1,20 +1,3 @@
-
-//
-// Disclamer:
-// ----------
-//
-// This code will work only if you selected window, graphics and audio.
-//
-// In order to load the resources like cute_image.png, you have to set up
-// your target scheme:
-//
-// - Select "Edit Scheme…" in the "Product" menu;
-// - Check the box "use custom working directory";
-// - Fill the text field with the folder path containing your resources;
-//        (e.g. your project folder)
-// - Click OK.
-//
-
 #include <iostream>
 #include "Singleton.hpp"
 #include "Buildo.hpp"
@@ -22,6 +5,8 @@
 #include "AbstractFactory.hpp"
 #include "FactoryMethod.hpp"
 #include "Decorator.hpp"
+#include "Facade.hpp"
+#include "Bridge.hpp"
 
 int main(int argc, char const** argv)
 {
@@ -109,6 +94,18 @@ int main(int argc, char const** argv)
     myArt->hang();
     std::cout << "Whew! what a beauty, worth at least " << myArt->quality() << std::endl;
     delete myArt;
+    
+    //******************* FACADE ********************//
+    Facade myFac;
+    myFac.facadeDo();
+    
+    //******************* BRIDGE ********************//
+    Shape* circle1 = new Square(new CheapRenderer(), 2, 3, 20, 50);
+    Shape* circle2 = new Square(new ExpensiveRenderer(), 2, 3, 20, 50);
+    circle1->draw();
+    circle2->draw();
+    delete circle1;
+    delete circle2;
     
     
     
