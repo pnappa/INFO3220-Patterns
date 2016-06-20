@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		371013571D177AFD00B7F423 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371013561D177AFD00B7F423 /* main.cpp */; };
+		3710136B1D17ADB900B7F423 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 371013691D17ADB900B7F423 /* Singleton.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -17,6 +18,14 @@
 		3710135A1D177AFD00B7F423 /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
 		3710135B1D177AFD00B7F423 /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
 		3710135C1D177AFD00B7F423 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		371013631D177B4000B7F423 /* Buildo.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Buildo.hpp; sourceTree = "<group>"; };
+		371013661D177F1F00B7F423 /* Prototype.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Prototype.hpp; sourceTree = "<group>"; };
+		371013681D17A8EF00B7F423 /* AbstractFactory.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = AbstractFactory.hpp; sourceTree = "<group>"; };
+		371013691D17ADB900B7F423 /* Singleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Singleton.cpp; sourceTree = "<group>"; };
+		3710136A1D17ADB900B7F423 /* Singleton.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Singleton.hpp; sourceTree = "<group>"; };
+		3710136C1D17B1FA00B7F423 /* FactoryMethod.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FactoryMethod.hpp; sourceTree = "<group>"; };
+		3710136E1D17BC1700B7F423 /* Adapter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Adapter.hpp; sourceTree = "<group>"; };
+		371013711D17CB0500B7F423 /* Decorator.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Decorator.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +59,14 @@
 			isa = PBXGroup;
 			children = (
 				371013561D177AFD00B7F423 /* main.cpp */,
+				371013711D17CB0500B7F423 /* Decorator.hpp */,
+				3710136E1D17BC1700B7F423 /* Adapter.hpp */,
+				3710136C1D17B1FA00B7F423 /* FactoryMethod.hpp */,
+				371013691D17ADB900B7F423 /* Singleton.cpp */,
+				3710136A1D17ADB900B7F423 /* Singleton.hpp */,
+				371013681D17A8EF00B7F423 /* AbstractFactory.hpp */,
+				371013631D177B4000B7F423 /* Buildo.hpp */,
+				371013661D177F1F00B7F423 /* Prototype.hpp */,
 				371013581D177AFD00B7F423 /* Resources */,
 			);
 			path = OODTest2;
@@ -122,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				371013571D177AFD00B7F423 /* main.cpp in Sources */,
+				3710136B1D17ADB900B7F423 /* Singleton.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
