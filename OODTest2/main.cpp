@@ -6,11 +6,16 @@
 #include "Prototype.hpp"
 #include "AbstractFactory.hpp"
 #include "FactoryMethod.hpp"
+
 #include "Decorator.hpp"
 #include "Facade.hpp"
 #include "Bridge.hpp"
 #include "Composite.hpp"
 #include "Proxy.hpp"
+
+
+#include "Iterator.hpp"
+#include "Template.hpp"
 
 int main(int argc, char const** argv)
 {
@@ -137,6 +142,28 @@ int main(int argc, char const** argv)
     myImg->display();
     myImg->loadImage();         //useless! done by now for sure!
     delete myImg;
+    
+    //******************** FLYWEIGHT *****************//
+    //TODO: dsadsadas
+    
+    
+    //////////////////////////////////////////////////////////////////////BEHAVIOURAL
+    ///******************* ITERATOR ******************//
+    Cow myCows[6] = {0, 2, 100, 5000, 20, 33000};      //create some cows
+    CowIterator start = CowIterator(myCows);
+    CowIterator end = CowIterator(myCows + 6);
+    std::cout << "Cows:\n";
+    for (auto k = start; k!=end; ++k) {
+        std::cout << k->getVol() << std::endl;
+    }
+    
+    ///******************* TEMPLATE METHOD ***********//
+    Subject* mySub = new COMP3520();
+    mySub->doSubject();
+    delete mySub;
+    mySub = new INFO3220();
+    mySub->doSubject();
+    delete mySub;
     
     
     return EXIT_SUCCESS;
