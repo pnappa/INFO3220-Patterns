@@ -16,6 +16,7 @@
 
 #include "Iterator.hpp"
 #include "Template.hpp"
+#include "State.hpp"
 
 int main(int argc, char const** argv)
 {
@@ -164,6 +165,15 @@ int main(int argc, char const** argv)
     mySub = new INFO3220();
     mySub->doSubject();
     delete mySub;
+    
+    ///******************* STATE ********************//
+    Mario* m = new Mario(new ShortMarioState());
+    m->getFireBall();       //firestate
+    m->getHit();            //revert to short state
+    m->getStarMan();        //now forever invincible
+    m->getHit();            //can't touch him!
+    delete m;               //...ow
+    
     
     
     return EXIT_SUCCESS;
