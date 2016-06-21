@@ -12,7 +12,7 @@
 #include "Bridge.hpp"
 #include "Composite.hpp"
 #include "Proxy.hpp"
-
+#include "Flyweight.hpp"
 
 #include "Iterator.hpp"
 #include "Template.hpp"
@@ -20,6 +20,7 @@
 //visitor defined in composite.hpp
 #include "Command.hpp"
 #include "Strategy.hpp"
+#include "Observer.hpp"
 
 int main(int argc, char const** argv)
 {
@@ -149,6 +150,23 @@ int main(int argc, char const** argv)
     
     //******************** FLYWEIGHT *****************//
     //TODO: dsadsadas
+//    {
+//    std::shared_ptr<ImageLoader> imLoader;
+//    
+//    imLoader->load("hello", std::make_shared<Image2>());
+//    imLoader->load("hello2", std::make_shared<Image2>());
+//    imLoader->load("hello3", std::make_shared<Image2>());
+//    
+//    RenderScreen1 r(imLoader);
+//    r.addImage("hello");
+//    r.addImage("hello2");
+//    RenderScreen1 rs(imLoader);
+//    rs.addImage("hello");
+//    rs.addImage("hello3");
+//    
+//    r.getImageData();
+//    rs.getImageData();
+//    }
     
     
     //////////////////////////////////////////////////////////////////////BEHAVIOURAL
@@ -216,6 +234,31 @@ int main(int argc, char const** argv)
         myClass.teach(100);
         myClass.setTeacher(nullptr);
     }
+    
+    
+    //******************** OBSERVER **************//
+    {
+        Subject2 subject1;
+        Subject2 subject2;
+        ConcreteInstance* c1 = new ConcreteInstance();
+        ConcreteInstance* c2 = new ConcreteInstance();
+        ConcreteInstance* c3 = new ConcreteInstance();
+        
+        subject1.registerObs(c1);
+        subject1.registerObs(c2);
+        
+        subject2.registerObs(c2);
+        subject2.registerObs(c3);
+        
+        subject1.update();
+        subject2.update();
+        
+        delete c3;
+        delete c2;
+        delete c1;
+    }
+    
+
     
     
     
