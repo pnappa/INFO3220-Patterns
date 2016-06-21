@@ -21,6 +21,8 @@
 #include "Command.hpp"
 #include "Strategy.hpp"
 #include "Observer.hpp"
+#include "Mediator.hpp"
+#include "Memento.hpp"
 
 int main(int argc, char const** argv)
 {
@@ -258,7 +260,21 @@ int main(int argc, char const** argv)
         delete c1;
     }
     
-
+    //********************* MEDIATOR *************//
+    Mediator HEILLO;
+    HEILLO.keepCool(200);
+    
+    
+    //********************* MOMENTO *************//
+    std::vector<Originator::Momento*> states;
+    Originator orig;
+    orig.set("hello");
+    states.push_back(orig.saveToMomento());
+    orig.set("noway!");
+    states.push_back(orig.saveToMomento());
+    orig.restoreFrom(states.front());       //restore to first state
+    std::cout << orig.getStr() << std::endl;
+    
     
     
     
