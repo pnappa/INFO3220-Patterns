@@ -24,7 +24,7 @@ public:
     
     virtual void Execute() = 0;
 protected:
-    Command();
+    Command() {};
 };
 
 class FoldCommand : public Command {

@@ -19,6 +19,7 @@
 #include "State.hpp"
 //visitor defined in composite.hpp
 #include "Command.hpp"
+#include "Strategy.hpp"
 
 int main(int argc, char const** argv)
 {
@@ -196,7 +197,7 @@ int main(int argc, char const** argv)
     myVistor->internalVisit(node1);
     
     //******************* COMMAND ****************//
-    std::vector<Command*> invoker;
+    std::vector<Command*> invoker;      //ideally the invoker would be a class, but no time for that!
     Application* myApp = new Application();
     invoker.push_back(new FlimCommand(myApp));
     invoker.back()->Execute();
@@ -206,6 +207,17 @@ int main(int argc, char const** argv)
     for (auto r : invoker) delete r;
     invoker.clear();
     delete myApp;
+    
+    //******************** STRATEGY **************//
+    {
+        Classroom myClass(new MathsTeacher());
+        myClass.teach(100);
+        myClass.setTeacher(new EnglishTeacher());
+        myClass.teach(100);
+        myClass.setTeacher(nullptr);
+    }
+    
+    
     
     return EXIT_SUCCESS;
 }

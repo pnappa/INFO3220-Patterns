@@ -6,7 +6,6 @@
 //  Copyright © 2016 Patrick Nappa. All rights reserved.
 //
 
-#include "Visitor.hpp"
 #include "Composite.hpp"
 
 #include <iostream>
