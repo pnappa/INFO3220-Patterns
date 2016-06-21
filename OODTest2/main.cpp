@@ -174,7 +174,24 @@ int main(int argc, char const** argv)
     m->getHit();            //can't touch him!
     delete m;               //...ow
     
+    //******************* VISITOR ******************//
     
+    Visitor* myVistor = new ConcreteVisitor();
+    for (int i = 0; i < 39; i+=1) {
+        leafies.push_back(new TreeLeaf(i));
+    }
+    node1 = new InternalLeaf();
+    node2 = new InternalLeaf();
+    node3 = new InternalLeaf();
+    for (int i = 0; i < 10; i+=3) {
+        node1->addChild(leafies.at(i));
+        node2->addChild(leafies.at(i+1));
+        node3->addChild(leafies.at(i+2));
+    }
+    leafies.clear();
+    node1->addChild(node2);
+    node1->addChild(node3);
+    myVistor->internalVisit(node1);
     
     return EXIT_SUCCESS;
 }

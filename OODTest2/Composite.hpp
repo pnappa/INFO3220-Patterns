@@ -11,12 +11,32 @@
 
 #include <iostream>
 #include <list>
+///////////////VISITOR
+class TreeLeaf;
+class InternalLeaf;
+class Component;
+class Visitor {
+public:
+    void visit(Component* comp);
+    virtual void leafVisit(TreeLeaf* comp) = 0;
+    virtual void internalVisit(InternalLeaf* comp) = 0;
+};
+
+class ConcreteVisitor : public Visitor {
+public:
+    void leafVisit(TreeLeaf* comp);
+    void internalVisit(InternalLeaf* comp);
+};
+//////////////VISITOR
 
 class Component {
 public:
     Component() {};
     virtual ~Component() {};
     virtual void print() = 0;
+    
+    //for Visitor
+    virtual void accept(Visitor* visitor) = 0;
 };
 
 class TreeLeaf : public Component {
@@ -26,6 +46,8 @@ public:
     void print() {
         std::cout << m_number << std::endl;
     }
+    //visitor
+    void accept(Visitor* visitor) { std::cout << "accepted @ leaf" << std::endl; };
 };
 
 class InternalLeaf : public Component {
@@ -46,8 +68,12 @@ public:
         }
         std::cout << std::endl;
     }
-    
+    void accept(Visitor* visitor) {
+        
+        for (auto child : m_children) {
+            visitor->visit(child);
+        }
+    };
 };
-
 
 #endif /* Composite_h */
