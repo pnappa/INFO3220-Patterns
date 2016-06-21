@@ -17,6 +17,8 @@
 #include "Iterator.hpp"
 #include "Template.hpp"
 #include "State.hpp"
+//visitor defined in composite.hpp
+#include "Command.hpp"
 
 int main(int argc, char const** argv)
 {
@@ -175,11 +177,11 @@ int main(int argc, char const** argv)
     delete m;               //...ow
     
     //******************* VISITOR ******************//
-    
     Visitor* myVistor = new ConcreteVisitor();
     for (int i = 0; i < 39; i+=1) {
         leafies.push_back(new TreeLeaf(i));
     }
+    //note visitor to composite model
     node1 = new InternalLeaf();
     node2 = new InternalLeaf();
     node3 = new InternalLeaf();
@@ -192,6 +194,18 @@ int main(int argc, char const** argv)
     node1->addChild(node2);
     node1->addChild(node3);
     myVistor->internalVisit(node1);
+    
+    //******************* COMMAND ****************//
+    std::vector<Command*> invoker;
+    Application* myApp = new Application();
+    invoker.push_back(new FlimCommand(myApp));
+    invoker.back()->Execute();
+    invoker.push_back(new FoldCommand(myApp));
+    invoker.back()->Execute();
+    
+    for (auto r : invoker) delete r;
+    invoker.clear();
+    delete myApp;
     
     return EXIT_SUCCESS;
 }
